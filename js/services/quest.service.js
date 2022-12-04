@@ -1,15 +1,16 @@
 'use strict'
 
+const DB_KEY = 'quest_db'
+
 var gQuestsTree
 var gCurrQuest
 var gPrevQuest = null
 
 function createQuestsTree() {
-  gQuestsTree = createQuest('Male?')
-  gQuestsTree.yes = createQuest('Gandhi')
-  gQuestsTree.no = createQuest('Rita')
-  gCurrQuest = gQuestsTree
-  gPrevQuest = null
+  const questTree = createQuest('Male?')
+  questTree.yes = createQuest('Gandhi')
+  questTree.no = createQuest('Rita')
+  return questTree
 }
 
 function createQuest(txt) {
@@ -18,6 +19,12 @@ function createQuest(txt) {
     yes: null,
     no: null,
   }
+}
+
+function resetAllGlobalVars() {
+  gQuestsTree = loadFromLocalStorage(DB_KEY) || createQuestsTree()
+  gCurrQuest = gQuestsTree
+  gPrevQuest = null
 }
 
 function isChildless(node) {
@@ -30,9 +37,10 @@ function moveToNextQuest(res) {
 }
 
 function addGuess(newQuestTxt, newGuessTxt, lastRes) {
+  console.log(lastRes);
   gCurrQuest[lastRes] = createQuest(newQuestTxt)
   gCurrQuest[lastRes].yes = createQuest(newGuessTxt)
-  console.log(gQuestsTree)
+  saveToLocalStorage(DB_KEY, gQuestsTree)
 }
 
 function getCurrQuest() {

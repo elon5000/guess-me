@@ -9,14 +9,12 @@ $('.btn-no').click({ans: 'no'}, onUserResponse)
 $('.btn-add-guess').click(onAddGuess)
 
 function init() {
-  console.log('Started...')
-  createQuestsTree()
+  resetAllGlobalVars()
 }
 
 function onStartGuessing() {
   $('.game-start').hide()
   renderQuest()
-  // TODO: show the quest section
   $('.quest').show()
 }
 
@@ -25,7 +23,8 @@ function renderQuest() {
 }
 
 function onUserResponse(ev) {
-  var res = ev.data.ans
+  const res = ev.data.ans
+  gLastRes = res
   if (isChildless(getCurrQuest())) {
     if (res === 'yes') {
       alert('Yes, I knew it!')
@@ -36,7 +35,6 @@ function onUserResponse(ev) {
       $('.new-quest').show()
     }
   } else {
-    gLastRes = res
     moveToNextQuest(res)
     renderQuest()
   }
@@ -54,4 +52,5 @@ function onRestartGame() {
   $('.new-quest').hide()
   $('.game-start').show()
   gLastRes = null
+  resetAllGlobalVars()
 }
