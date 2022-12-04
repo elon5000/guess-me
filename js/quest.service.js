@@ -25,11 +25,14 @@ function isChildless(node) {
 }
 
 function moveToNextQuest(res) {
-  // TODO: update the gPrevQuest, gCurrQuest global vars
+  gPrevQuest = gCurrQuest
+  gCurrQuest = gPrevQuest[res]
 }
 
 function addGuess(newQuestTxt, newGuessTxt, lastRes) {
-  // TODO: Create and Connect the 2 Quests to the quetsions tree
+  gCurrQuest[lastRes] = createQuest(newQuestTxt)
+  gCurrQuest[lastRes].yes = createQuest(newGuessTxt)
+  console.log(gQuestsTree)
 }
 
 function getCurrQuest() {
