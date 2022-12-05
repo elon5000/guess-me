@@ -36,11 +36,10 @@ function moveToNextQuest(res) {
   gCurrQuest = gPrevQuest[res]
 }
 
-function addGuess(newQuestTxt, newGuessTxt, lastRes) {
-  const lastQuest = gCurrQuest.txt
-  console.log('prevQuestText', lastQuest)
+function addGuess(newQuestTxt, newGuessTxt) {
+  const lastQuestTxt = gCurrQuest.txt
   gCurrQuest.txt = newQuestTxt
-  gCurrQuest.no = createQuest(lastQuest)
+  gCurrQuest.no = createQuest(lastQuestTxt)
   gCurrQuest.yes = createQuest(newGuessTxt)
   saveToLocalStorage(DB_KEY, gQuestsTree)
 }

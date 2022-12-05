@@ -1,3 +1,11 @@
+.main-layout {
+  width: 88vw;
+}
+
+.full-layout {
+  width: 100vw;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -15,10 +23,6 @@ header {
   color: #fcf064;
   font-size: 3em;
   flex: 0.2;
-}
-
-.logo-container {
-  background: rebeccapurple;
 }
 
 footer {
