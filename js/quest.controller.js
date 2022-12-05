@@ -12,12 +12,8 @@ function init() {
 
 function onStartGuessing() {
   $('.game-start').hide()
-  renderQuest()
+  _renderQuest()
   $('.quest').show()
-}
-
-function renderQuest() {
-  $('.quest').find('h2').text(getCurrQuest().txt)
 }
 
 function onUserResponse(ev) {
@@ -33,7 +29,7 @@ function onUserResponse(ev) {
     }
   } else {
     moveToNextQuest(res)
-    renderQuest()
+    _renderQuest()
   }
 }
 
@@ -41,6 +37,7 @@ function onAddGuess(ev) {
   ev.preventDefault()
   const newGuess = $('#newGuess').val()
   const newQuest = $('#newQuest').val()
+  _clearInputs([$('#newGuess'), $('#newQuest')])
   addGuess(newQuest, newGuess)
   onRestartGame()
 }
@@ -49,4 +46,15 @@ function onRestartGame() {
   $('.new-quest').hide()
   $('.game-start').show()
   resetAllGlobalVars()
+}
+
+function _clearInputs(inputs) {
+  inputs.forEach(input => {
+    input.val('')
+  })
+}
+
+
+function _renderQuest() {
+  $('.quest').find('h2').text(getCurrQuest().txt)
 }
