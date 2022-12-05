@@ -1,7 +1,5 @@
 'use strict'
 
-var gLastRes = null
-
 $(document).ready(init)
 $('.btn-start').click(onStartGuessing)
 $('.btn-yes').click({ans: 'yes'}, onUserResponse)
@@ -24,7 +22,6 @@ function renderQuest() {
 
 function onUserResponse(ev) {
   const res = ev.data.ans
-  gLastRes = res
   if (isChildless(getCurrQuest())) {
     if (res === 'yes') {
       alert('Yes, I knew it!')
@@ -44,13 +41,12 @@ function onAddGuess(ev) {
   ev.preventDefault()
   const newGuess = $('#newGuess').val()
   const newQuest = $('#newQuest').val()
-  addGuess(newQuest, newGuess, gLastRes)
+  addGuess(newQuest, newGuess)
   onRestartGame()
 }
 
 function onRestartGame() {
   $('.new-quest').hide()
   $('.game-start').show()
-  gLastRes = null
   resetAllGlobalVars()
 }
