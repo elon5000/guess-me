@@ -1,3 +1,10 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .main-layout {
   width: 88vw;
 }
@@ -18,17 +25,15 @@ body {
 }
 
 header {
-  background-color: #73aedb;
-  text-align: center;
-  color: #fcf064;
+  flex: 0.15;
   font-size: 3em;
-  flex: 0.2;
+  color: #fcf064;
+  text-align: center;
+  background-color: #73aedb;
 }
 
-footer {
-  background-color: black;
-  text-align: center;
-  color: lightblue;
+.logo {
+  cursor: pointer;
 }
 
 main {
@@ -86,4 +91,10 @@ header h1 {
   background-color: #fd7e14;
   width: 250px;
   color: white;
+}
+
+footer {
+  background-color: black;
+  text-align: center;
+  color: lightblue;
 }

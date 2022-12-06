@@ -10,14 +10,23 @@
   <body class="d-flex">
     <header class="d-flex flex-row justify-content-center full-layout">
       <div class="logo-container d-flex flex-row justify-content-between align-items-center p-3 main-layout">
-        <h3 title="Logo" class="text-left logo">Guess me®</h3>
-        <img title="Image logo" class="w-25 img-fluid logo-img" src="img/layout/logo.png" alt="Logo image" />
+        <h3 title="Logo" data-trans="logo" class="text-left logo">Guess me®</h3>
+        <img title="Image logo" class="w-25 logo-img" src="img/layout/logo.png" alt="Logo image" />
+      </div>
+      <div class="settings-container">
+        <div class="langue-container">
+          <label for="langue-select">Langue</label>
+          <select class="lang-select" name="langue-select">
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+          </select>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="game-start">
-        <h2>Think of Someone...</h2>
+        <h2 data-trans="genieGameStart">Think of Someone...</h2>
         <button title="Click to start the game" class="btn btn-start">I'm Ready!</button>
       </section>
 
@@ -45,6 +54,7 @@
     <footer title="Page footer">CoffeRights &copy; 2022</footer>
 
     <script src="lib/jquery/jquery.js"></script>
+    <script src="js/services/i18n.service.js"></script>
     <script src="js/services/storeage.service.js"></script>
     <script src="js/services/quest.service.js"></script>
     <script src="js/quest.controller.js"></script>

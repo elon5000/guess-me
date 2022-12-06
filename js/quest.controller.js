@@ -2,8 +2,9 @@
 
 $(document).ready(init)
 $('.btn-start').click(onStartGuessing)
-$('.btn-yes').click({ans: 'yes'}, onUserResponse)
+$('.btn-yes').click(onUserResponse)
 $('.btn-no').click({ans: 'no'}, onUserResponse)
+$('.lang-select').change({lang: $('.lang-select').val()}, onSetLang)
 $('.btn-add-guess').click(onAddGuess)
 
 function init() {
@@ -46,6 +47,12 @@ function onRestartGame() {
   $('.new-quest').hide()
   $('.game-start').show()
   resetAllGlobalVars()
+}
+
+function onSetLang(ev) {
+  const lang = ev.delegateTarget.value
+  setLang(lang)
+  doTrans()
 }
 
 function _clearInputs(inputs) {
