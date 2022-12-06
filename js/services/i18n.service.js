@@ -10,6 +10,18 @@ const gTrans = {
     genieGameStart: {
         en: 'Think of Someone...',
         he: '...תחשבו על מישהו'
+    },
+    startBtn: {
+        en: 'I\'m Ready!',
+        he: '!אני מוכן'
+    },
+    yesBtn: {
+        en: 'Yes',
+        he: 'כן'
+    },
+    noBtn: {
+        en: 'No',
+        he: 'לא'
     }
 }
 
@@ -19,6 +31,5 @@ function setLang(lang) {
 
 function doTrans() {
     const $els = $('[data-trans]')
-    console.log($els)
     $els.each(function() {this.innerText = gTrans[this.dataset.trans][gLang]})
 }

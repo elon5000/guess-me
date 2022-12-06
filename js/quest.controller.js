@@ -3,8 +3,8 @@
 $(document).ready(init)
 $('.btn-start').click(onStartGuessing)
 $('.btn-yes').click(onUserResponse)
-$('.btn-no').click({ans: 'no'}, onUserResponse)
-$('.lang-select').change({lang: $('.lang-select').val()}, onSetLang)
+$('.btn-no').click(onUserResponse)
+$('.lang-select').change(onSetLang)
 $('.btn-add-guess').click(onAddGuess)
 
 function init() {
@@ -18,7 +18,7 @@ function onStartGuessing() {
 }
 
 function onUserResponse(ev) {
-  const res = ev.data.ans
+  const res = ev.target.dataset.ans
   if (isChildless(getCurrQuest())) {
     if (res === 'yes') {
       alert('Yes, I knew it!')
@@ -60,7 +60,6 @@ function _clearInputs(inputs) {
     input.val('')
   })
 }
-
 
 function _renderQuest() {
   $('.quest').find('h2').text(getCurrQuest().txt)
