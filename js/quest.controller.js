@@ -6,6 +6,11 @@ $('.btn-yes').click(onUserResponse)
 $('.btn-no').click(onUserResponse)
 $('.lang-select').change(onSetLang)
 $('.btn-add-guess').click(onAddGuess)
+$('.teach-me-btn').click(function () {
+  $('.end-game-modal').hide()
+  $('.quest').hide()
+  $('.new-quest').show()
+})
 
 function init() {
   resetAllGlobalVars()
@@ -24,9 +29,7 @@ function onUserResponse(ev) {
       alert('Yes, I knew it!')
       // TODO: improve UX
     } else {
-      alert('I dont know...teach me!')
-      $('.quest').hide()
-      $('.new-quest').show()
+      _openEndGameModal('I lose.., teach me')
     }
   } else {
     moveToNextQuest(res)
@@ -53,6 +56,11 @@ function onSetLang(ev) {
   const lang = ev.delegateTarget.value
   setLang(lang)
   doTrans()
+}
+
+function _openEndGameModal(geiniTxt) {
+  $('.geini-txt').text(geiniTxt)
+  $('.end-game-modal').show()
 }
 
 function _clearInputs(inputs) {

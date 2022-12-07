@@ -22,6 +22,26 @@ const gTrans = {
     noBtn: {
         en: 'No',
         he: 'לא'
+    },
+    teachBtn: {
+        en: 'Teach me',
+        he: 'למד אותי'
+    },
+    geiniLoseTxt: {
+        en: 'OK, I gave up...',
+        he: '...אוקי, ויתרתי'
+    },
+    newGuessLabel: {
+        en: 'You thought of:',
+        he: ':חשבת על'
+    },
+    newQuestLabel: {
+        en: 'Question to differentiate:',
+        he: ':שאלה שתענה על התשובה'
+    },
+    addGuessBtn: {
+        en: 'Make me Smarter!',
+        he: '!הפוך אותי לחכם יותר'
     }
 }
 
@@ -31,5 +51,7 @@ function setLang(lang) {
 
 function doTrans() {
     const $els = $('[data-trans]')
-    $els.each(function() {this.innerText = gTrans[this.dataset.trans][gLang]})
+    $els.each(function () {
+        this.innerText = gTrans[this.dataset.trans]?.[gLang]
+    })
 }

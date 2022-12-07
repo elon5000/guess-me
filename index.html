@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Guess me</title>
-    <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="css/app.css" />
-  </head>
 
-  <body class="d-flex">
-    <header class="d-flex flex-row justify-content-center full-layout">
-      <div class="logo-container d-flex flex-row justify-content-between align-items-center p-3 main-layout">
-        <h3 title="Logo" data-trans="logo" class="text-left logo">Guess me®</h3>
-        <img title="Image logo" class="w-25 logo-img" src="img/layout/logo.png" alt="Logo image" />
+<head>
+  <meta charset="utf-8" />
+  <title>Guess me</title>
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body class="d-flex">
+  <header class="d-flex flex-row justify-content-center full-layout">
+    <div class="logo-container d-flex flex-row justify-content-between align-items-center p-3 main-layout">
+      <h3 title="Logo" data-trans="logo" class="text-left logo">Guess me®</h3>
+      <img title="Image logo" class="w-25 logo-img" src="img/layout/logo.png" alt="Logo image" />
+    </div>
+    <div class="settings-container">
+      <div class="langue-container">
+        <label for="langue-select">Langue</label>
+        <select class="lang-select" name="langue-select">
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+        </select>
       </div>
-      <div class="settings-container">
-        <div class="langue-container">
-          <label for="langue-select">Langue</label>
-          <select class="lang-select" name="langue-select">
-            <option value="en">English</option>
-            <option value="he">עברית</option>
-          </select>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <section class="game-start">
-        <h2 data-trans="genieGameStart">Think of Someone...</h2>
-        <button data-trans="startBtn" title="Click to start the game" class="btn btn-start">I'm Ready!</button>
-      </section>
+  <main>
+    <section class="game-start">
+      <h2 data-trans="genieGameStart">Think of Someone...</h2>
+      <button data-trans="startBtn" title="Click to start the game" class="btn btn-start">I'm Ready!</button>
+    </section>
 
-      <section class="quest" style="display: none">
-        <h2></h2>
-        <button data-trans="yesBtn" data-ans="yes" title="Answer yes" class="btn btn-yes">Yes</button>
-        <button data-trans="noBtn" data-ans="yes" title="Answer no" class="btn btn-no">No</button>
-      </section>
+    <section class="quest" style="display: none">
+      <h2></h2>
+      <button data-trans="yesBtn" data-ans="yes" title="Answer yes" class="btn btn-yes">Yes</button>
+      <button data-trans="noBtn" data-ans="no" title="Answer no" class="btn btn-no">No</button>
+    </section>
 
-      <section class="new-quest" style="display: none">
-        <h2 title="Geini text">OK, I gave up...</h2>
+    <section class="end-game-modal" style="display: none;">
+      <h3 title="Geini text" class="geini-txt"></h3>
+      <button data-trans="teachBtn" class="teach-me-btn" title="Teach the Geini">Teach me</button>
+    </section>
 
-        <form class="ending-form">
-          <label for="newGuess">You thought of: </label>
-          <input title="Add a new guess" name="newGuess" type="txt" id="newGuess" placeholder="Your Guess" required />
+    <section class="new-quest" style="display: none">
+      <h2 data-trans="gieniLoseTxt" title="Geini text">OK, I gave up...</h2>
 
-          <label for="newQuest">Question to differentiate:</label>
-          <input title="Add a new question that leads to the guess" name="newQuest" type="txt" id="newQuest" placeholder="The answer is YES for yours" required />
+      <form class="ending-form">
+        <label data-trans="newGuessLabel" for="newGuess">You thought of:</label>
+        <input title="Add a new guess" name="newGuess" type="txt" id="newGuess" placeholder="Your Guess" required />
 
-          <button title="Submit answer" type="submit" class="btn btn-add-guess">Make me Smarter!</button>
-        </form>
-      </section>
-    </main>
+        <label data-trans="newQuestLabel" for="newQuest">Question to differentiate:</label>
+        <input title="Add a new question that leads to the guess" name="newQuest" type="txt" id="newQuest"
+          placeholder="The answer is YES for yours" required />
 
-    <footer title="Page footer">CoffeRights &copy; 2022</footer>
+        <button data-trans="addGuessBtn" title="Submit answer" type="submit" class="btn btn-add-guess">Make me Smarter!</button>
+      </form>
+    </section>
+  </main>
 
-    <script src="lib/jquery/jquery.js"></script>
-    <script src="js/services/i18n.service.js"></script>
-    <script src="js/services/storeage.service.js"></script>
-    <script src="js/services/quest.service.js"></script>
-    <script src="js/quest.controller.js"></script>
-  </body>
+  <footer title="Page footer">CoffeRights &copy; 2022</footer>
+
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="js/services/i18n.service.js"></script>
+  <script src="js/services/storeage.service.js"></script>
+  <script src="js/services/quest.service.js"></script>
+  <script src="js/quest.controller.js"></script>
+</body>
+
 </html>
